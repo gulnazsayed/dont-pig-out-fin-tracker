@@ -1,14 +1,38 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-      <title>JavaScript Pie Chart</title>
-      <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-      <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
-  </head>
-  <body>
-    <div id="container" style="width: 100%; height: 100%"></div>
-    <script>
-        <!-- chart code will be here -->
-    </script>
-  </body>
-</html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+  var chart = new CanvasJS.Chart("chartContainer",
+  {
+    theme: "light2",
+    title:{
+      text: "Gaming Consoles Sold in 2012"
+    },    
+    data: [
+    {       
+      type: "pie",
+      showInLegend: true,
+      toolTipContent: "{y} - #percent %",
+      yValueFormatString: "#,##0,,.## Million",
+      legendText: "{indexLabel}",
+      dataPoints: [
+        {  y: 4181563, indexLabel: "PlayStation 3" },
+        {  y: 2175498, indexLabel: "Wii" },
+        {  y: 3125844, indexLabel: "Xbox 360" },
+        {  y: 1176121, indexLabel: "Nintendo DS"},
+        {  y: 1727161, indexLabel: "PSP" },
+        {  y: 4303364, indexLabel: "Nintendo 3DS"},
+        {  y: 1717786, indexLabel: "PS Vita"}
+      ]
+    }
+    ]
+  });
+  chart.render();
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+ </html>
