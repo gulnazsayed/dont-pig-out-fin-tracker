@@ -5,34 +5,52 @@
 <link rel="stylesheet" type="text/css" href="options.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA-A5xRAyWhCXfUbsQxdBteiKIS-YMwSSM",
+        authDomain: "dontpigout-6a78f.firebaseapp.com",
+        databaseURL: "https://dontpigout-6a78f.firebaseio.com",
+        projectId: "dontpigout-6a78f",
+        storageBucket: "dontpigout-6a78f.appspot.com",
+        messagingSenderId: "103970144178"
+      };
+      firebase.initializeApp(config);
+
+      // var ref = firebase.database().ref();                           
+      // ref.on("value", function(snapshot) {
+      //   output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+      // });
+      database = firebase.database();
+
+    function changeBudget(){
+        var gROC = parseInt(document.getElementById("groceries").value);
+        var gAS = parseInt(document.getElementById("gas").value);
+        var eNT = parseInt(document.getElementById("entertainment").value);
+        var mISC = parseInt(document.getElementById("misc").value);
+
+        let userRef = database.ref('users/' + "userId");
+        userRef.child('mike').update({'gas_org': gAS, 'groceries_org': gROC, 'entertainment_org': eNT, "miscellaneous_org": mISC});
+        console.log("reached the end");
+    }
+
+
+</script>
 </head>
+
 <body>
 <p>Enter budget alloted for each category</p>
-<script>
-            function add_number(){
-            var first_number = parseInt(document.getElementById("groceries").value);
-            var second_number = parseInt(document.getElementById("gas").value);
-            var third_number = parseInt(document.getElementById("entertainment").value);
-            var fourth_number = parseInt(document.getElementById("food").value);
-            var fifth_number = parseInt(document.getElementById("misc").value);
-            var result = first_number + second_number + third_number + fourth_number + fifth_number;
-            document.getElementById("sum").value = result;    
-            }
-</script>
-<div>
+<section>
     <label for="groceries">Groceries </label>
     <input id="groceries" type="text" value="" name="groceries">
     <label for="gas">Gas </label>
     <input id="gas" type="text" value="" name="gas">
     <label for="entertainment">Entertainment </label>
     <input id="entertainment" type="text" value="" name="entertainment">
-    <label for="food">Food </label>
-    <input id="food" type="text" value="" name="food">
     <label for="misc">Miscellaneous </label>
     <input id="misc" type="text" value="" name="misc">
-    <button onclick="add_number()">Submit</button>
-    <label for="sum">Total </label>
-    <input id="sum" type="text">
-</div>
+    <input type="submit" value="Submit" onclick="changeBudget()">
+</section>
 </body>
 </html>
