@@ -5,8 +5,7 @@ html, body {
 .flex-container {
     height: 100%;
     background-image: url('background.jpg');
-  background-size: 100% 100%;
-
+    background-size: 100% 100%;
 }
 
 .menu {
@@ -80,28 +79,28 @@ html, body {
     justify-content: center;    
 }
 .whitespace2 {
-    width: 25%;
+    width: 35%;
     background-color: orange;
 }
-.piggy {
-    width: 50%;
+#piggy {
+    width: 30%;
     height: 75%;
     background-image: url('pig5.png');
     background-size: 100% 100%;
 
 }
 .accessory {
-    width: 25%;
+    width: 35%;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.accessoryI {
-    height: 50%;
+#accessoryI {
+    height: 70%;
     width: 50%;
-    background-image: url('dollar.png');
+    background-image: url('groceries.png');
     background-size: 100% 100%;
 }
 
