@@ -8,7 +8,7 @@ window.onload = function () {
   {
     theme: "light2",
     title:{
-      text: "How I Pigged Out This Month"
+      text: "How I Pigged Out This Week"
     },    
     data: [
     {       
@@ -70,11 +70,70 @@ window.onload = function () {
     });
 
   chart2.render();
+
+  var chart3 = new CanvasJS.Chart("chartContainer3",
+    {
+      title:{
+        text: "Top Oil Reserves"
+      },
+      data: [
+
+      {
+        dataPoints: [
+        { x: 1, y: 297571, label: "Venezuela"},
+        { x: 2, y: 267017,  label: "Saudi" },
+        { x: 3, y: 175200,  label: "Canada"},
+        { x: 4, y: 154580,  label: "Iran"},
+        { x: 5, y: 116000,  label: "Russia"},
+        { x: 6, y: 97800, label: "UAE"},
+        { x: 7, y: 20682,  label: "US"},
+        { x: 8, y: 20350,  label: "China"}
+        ]
+      }
+      ]
+    });
+
+    chart3.render();
 }
 </script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
 <body>
 <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
 <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+<div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+    <td>94</td>
+  </tr>
+</table>
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+    <td>94</td>
+  </tr>
+</table>
 </body>
  </html>
