@@ -29,7 +29,7 @@ input:hover,
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
-.fb {
+/*.fb {
   background-color: #3B5998;
   color: white;
 }
@@ -42,7 +42,7 @@ input:hover,
 .google {
   background-color: #dd4b39;
   color: white;
-}
+}*/
 
 /* style the submit button */
 input[type=submit] {
