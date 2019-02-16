@@ -1,1 +1,3 @@
-# financialtracker
+# Don't Pig Out!
+
+There are tons of financial tracking apps out there which analyze transactions and give helpful tips to more efficiently spending money long term. In today’s society however, people and especially teenagers have a tendency to have short attention spans, desire quick fixes, and impulse buy. Our app Don't Pig Out! targets this audience and provides them with a quick deterrent/motivation to spend money wisely, a motivation similar to simple snap streaks or a plant buddy. If users spend money wastefully, users get a direct response in a pig slowly dying, a way for users to emotionally connect their negligent spending with a negative emotion and visual. Analysis of previous transactions will customize the pig to mirror the user’s spending habits, creating a closer relationship with the pig, and make the emotional scarring much deeper.
