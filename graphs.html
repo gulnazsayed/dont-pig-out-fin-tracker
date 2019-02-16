@@ -2,37 +2,79 @@
 <html>
 <head>
 <script type="text/javascript">
+
 window.onload = function () {
-  var chart = new CanvasJS.Chart("chartContainer",
+  var chart = new CanvasJS.Chart("chartContainer1",
   {
     theme: "light2",
     title:{
-      text: "Gaming Consoles Sold in 2012"
+      text: "How I Pigged Out This Month"
     },    
     data: [
     {       
       type: "pie",
       showInLegend: true,
       toolTipContent: "{y} - #percent %",
-      yValueFormatString: "#,##0,,.## Million",
+      // yValueFormatString: "#,##0,,.## Million",
       legendText: "{indexLabel}",
       dataPoints: [
-        {  y: 4181563, indexLabel: "PlayStation 3" },
-        {  y: 2175498, indexLabel: "Wii" },
-        {  y: 3125844, indexLabel: "Xbox 360" },
-        {  y: 1176121, indexLabel: "Nintendo DS"},
-        {  y: 1727161, indexLabel: "PSP" },
-        {  y: 4303364, indexLabel: "Nintendo 3DS"},
-        {  y: 1717786, indexLabel: "PS Vita"}
+        {  y: 2, indexLabel: "PlayStation 3" },
+        {  y: 3, indexLabel: "Wii" },
+        {  y: 4, indexLabel: "Xbox 360" },
+        {  y: 5, indexLabel: "Nintendo DS"},
+        {  y: 6, indexLabel: "PSP" },
+        {  y: 3, indexLabel: "Nintendo 3DS"},
+        {  y: 6, indexLabel: "PS Vita"}
       ]
     }
     ]
   });
+
   chart.render();
+
+  var chart2 = new CanvasJS.Chart("chartContainer2",
+    {
+
+      title:{
+      text: "Earthquakes - per month"
+      },
+      axisX: {
+        valueFormatString: "MMM",
+        interval:1,
+        intervalType: "month"
+      },
+      axisY:{
+        includeZero: false
+
+      },
+      data: [
+      {
+        type: "line",
+
+        dataPoints: [
+        { x: new Date(2012, 00, 1), y: 450 },
+        { x: new Date(2012, 01, 1), y: 414},
+          { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle"},
+        { x: new Date(2012, 03, 1), y: 460 },
+        { x: new Date(2012, 04, 1), y: 450 },
+        { x: new Date(2012, 05, 1), y: 500 },
+        { x: new Date(2012, 06, 1), y: 480 },
+        { x: new Date(2012, 07, 1), y: 480 },
+        { x: new Date(2012, 08, 1), y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross"},
+        { x: new Date(2012, 09, 1), y: 500 },
+        { x: new Date(2012, 10, 1), y: 480 },
+        { x: new Date(2012, 11, 1), y: 510 }
+        ]
+      }
+      ]
+    });
+
+  chart2.render();
 }
 </script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
 </body>
  </html>
