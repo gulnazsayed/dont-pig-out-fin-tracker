@@ -41,17 +41,28 @@
 </head>
 
 <body>
-<p>Enter budget alloted for each category</p>
-<div>
-    <label for="groceries">Groceries </label>
-    <input id="groceries" type="text" value="" name="groceries">
-    <label for="gas">Gas </label>
-    <input id="gas" type="text" value="" name="gas">
-    <label for="entertainment">Entertainment </label>
-    <input id="entertainment" type="text" value="" name="entertainment">
-    <label for="misc">Miscellaneous </label>
-    <input id="misc" type="text" value="" name="misc">
-    <input type="submit" value="Submit" onclick="changeBudget()">
-</div>
+
+<div class="flex-container">
+    <div class="whitespace"></div>
+    <div class="title">
+      Don't Pig Out!
+    </div>
+    <div class="whitespace2"></div>
+    <div class="rect">    
+      <div class="subhead">
+        How much do you want to spend this week?
+      </div>
+      <div class="body">
+        <label for="groceries">Groceries </label>
+        <input id="groceries" type="text" value="" name="groceries">
+        <label for="gas">Gas </label>
+        <input id="gas" type="text" value="" name="gas">
+        <label for="entertainment">Entertainment </label>
+        <input id="entertainment" type="text" value="" name="entertainment">
+        <label for="misc">Miscellaneous </label>
+        <input id="misc" type="text" value="" name="misc">
+        <input type="submit" value="Submit" onclick="changeBudget()">
+      </div>
+  </div>
 </body>
 </html>

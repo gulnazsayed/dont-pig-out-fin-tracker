@@ -7,12 +7,55 @@ form {
   display: inline-block;
   font-size: 16px;
 }
-body {
+body, html {
   font-family: 'Montserrat', sans-serif; 
   text-align: left;
   background-color:#fff6f4;
   font-size: 150%;
+  height: 100%;
   
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.whitespace {
+  height:10%;
+}
+
+.title {
+  height: 10%;
+  font-size: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+.titleText {
+  width: 50%;
+  background-color: lightblue;
+  box-shadow: 0px 0px 50px 10px #ffeff5;
+  height: 80%;
+}
+
+.whitespace2 {
+  height: 20%;
+}
+
+.rect {
+  background-color: lightblue;
+  height: 30%;
+  box-shadow: 0px 0px 50px 2px #f2dce4;
+  
+}
+
+.subhead {
+  margin: 10px;  
+  font-size: 40px;
+  margin-bottom: 30px;
 }
 
 label{
@@ -21,6 +64,7 @@ label{
     clear: left;
     width: 250px;
     text-align: right;
+    font-size: 20px;
 }
 input {
   display: inline-block;
