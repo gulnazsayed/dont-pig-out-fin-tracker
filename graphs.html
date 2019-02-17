@@ -3,10 +3,61 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
   <link rel="stylesheet" href="register.css">
-<script type="text/javascript">
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
-window.onload = function () {
-  var chart = new CanvasJS.Chart("chartContainer1",
+<script type="text/javascript">
+  var gasNow, gasOrg, entNow, entOrg, grocNow, grocOrg, miscNow, miscOrg;
+  window.onload = function () {
+    
+    var config = {
+      apiKey: "AIzaSyA-A5xRAyWhCXfUbsQxdBteiKIS-YMwSSM",
+      authDomain: "dontpigout-6a78f.firebaseapp.com",
+      databaseURL: "https://dontpigout-6a78f.firebaseio.com",
+      projectId: "dontpigout-6a78f",
+      storageBucket: "dontpigout-6a78f.appspot.com",
+      messagingSenderId: "103970144178"
+    };
+    firebase.initializeApp(config);
+    database = firebase.database();
+
+    
+    var query = firebase.database().ref("users/userId").orderByKey();
+        query.once("value").then(function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+          // key will be "ada" the first time and "alan" the second time
+            var key = childSnapshot.key;
+          // childData will be the actual contents of the child
+            var childData = childSnapshot.val();
+
+            gasOrg = childData.gas_org;
+            gasNow = childData.gas;
+
+            entOrg = childData.entertainment_org;
+            entNow = childData.entertainment;
+
+            grocOrg = childData.groceries_org;
+            grocNow = childData.groceries;
+
+            miscOrg = childData.miscellaneous_org;
+            miscNow = childData.miscellaneous;
+          });
+
+      document.getElementById("gas").innerHTML = gasOrg;
+      document.getElementById("gas2").innerHTML = gasNow;
+
+      document.getElementById("groc").innerHTML = grocOrg;
+      document.getElementById("groc2").innerHTML = grocNow;
+
+      document.getElementById("ent").innerHTML = entOrg;
+      document.getElementById("ent2").innerHTML = entNow;
+
+      document.getElementById("misc").innerHTML = miscOrg;
+      document.getElementById("misc2").innerHTML = miscNow;
+
+      console.log(grocNow, grocOrg);
+
+
+      var chart = new CanvasJS.Chart("chartContainer1",
   {
     theme: "light2",
     // title:{
@@ -14,15 +65,16 @@ window.onload = function () {
     // },    
     data: [
     {       
+      //var a = 5;
       type: "pie",
       showInLegend: true,
       toolTipContent: "{y} - #percent %",
       legendText: "{indexLabel}",
       dataPoints: [
-        {  y: 2, indexLabel: "Groceries" },
-        {  y: 3, indexLabel: "Gas" },
-        {  y: 4, indexLabel: "Entertainment" },
-        {  y: 5, indexLabel: "Food"}
+        {  y: grocNow, indexLabel: "Groceries" },
+        {  y: gasNow, indexLabel: "Gas" },
+        {  y: entNow, indexLabel: "Entertainment" },
+        {  y: miscNow, indexLabel: "Miscellaneous"}
       ]
     }
     ]
@@ -78,19 +130,24 @@ window.onload = function () {
       data: [
 
       {
+        // var gNow = parseInt(gasNow);
         dataPoints: [
-        { x: 1, y: 297571, label: "Groceries"},
-        { x: 2, y: 267017,  label: "Gas" },
-        { x: 3, y: 175200,  label: "Entertainment"},
-        { x: 4, y: 154580,  label: "Food"}
+        { x: 1, y: grocNow, label: "Groceries"},
+        { x: 2, y: gasNow,  label: "Gas" },
+        { x: 3, y: entNow,  label: "Entertainment"},
+        { x: 4, y: miscNow,  label: "Miscellaneous"}
         ]
       }
       ]
     });
 
     chart3.render();
+  });
 }
-</script><script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+
+
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
 <body style="background-color:#fff6f4">
   <hr>
 <center><h1 style = "font-family: 'Montserrat', sans-serif;">How I Pigged Out This Week</h1></center>
@@ -108,23 +165,23 @@ window.onload = function () {
   </tr>
   <tr>
     <td><center>Groceries</center></td>
-    <td><center>$0</center></td> 
-    <td><center>$2</center></td>
+    <td><center id = "groc"></center></td> 
+    <td><center id = "groc2"></center></td>
   </tr>
   <tr>
     <td><center>Gas</center></td>
-    <td><center>$0</center></td> 
-    <td><center>$2</center></td>
+    <td><center id = "gas"></center></td> 
+    <td><center id = "gas2"></center></td>
   </tr>
   <tr>
     <td><center>Entertainment</center></td>
-    <td><center>$0</center></td> 
-    <td><center>$2</center></td>
+    <td><center id = "ent"></center></td> 
+    <td><center id = "ent2"></center></td>
   </tr>
   <tr>
-    <td><center>Food</center></td>
-    <td><center>$0</center></td> 
-    <td><center>$2</center></td>
+    <td><center>Miscellaneous</center></td>
+    <td><center id="misc"></center></td> 
+    <td><center id="misc2"></center></td>
   </tr>
 </table>
 <div><p></p><p></p><p></p><p></p></div> </hr>
