@@ -29,7 +29,22 @@
   
             function changeBudget(){
                 var moneySpent = parseInt(document.getElementById("moneySpent").value);
-                var category = "gas"; //change once we have the dropdown 
+                var cat = document.getElementById("dropDown");
+                if(document.getElementById("gRoc").selected){
+                	category="groceries";
+
+                }
+                else if(document.getElementById("gAs").selected){
+                	category="gas";
+				}
+				else if(document.getElementById("eNt").selected){
+                	category="entertainment";
+				}
+				else if(document.getElementById("mIsc").selected){
+                	category="miscellaneous";
+				}
+				changePig(category);
+                console.log(category);
 
                 let userRef = database.ref('users/' + "userId");
                 switch(category){
@@ -39,14 +54,16 @@
                           .then(function(snapshot) {
                             snapshot.forEach(function(childSnapshot) {
                               // key will be "ada" the first time and "alan" the second time
-                              var key = childSnapshot.key;
+                              //var key = childSnapshot.key;
                               // childData will be the actual contents of the child
                               var childData = childSnapshot.val();
                               //console.log(childData.gas);
                               var prevMoney = childData.gas;
+                              var prevTotal = childData.total;
+                              var changedTotal = moneySpent+prevTotal;
 
-                          var changedMoney = prevMoney - moneySpent;
-                          userRef.child('mike').update({'gas': changedMoney});
+                          	  var changedMoney = prevMoney - moneySpent;
+                          userRef.child('mike').update({'gas': changedMoney, 'total':changedTotal});
                           });
                         });
                     break;
@@ -61,9 +78,11 @@
                               var childData = childSnapshot.val();
                               //console.log(childData.groceries);
                               var prevMoney = childData.groceries;
+                              var prevTotal = childData.total;
+                              var changedTotal = moneySpent+prevTotal;
 
                               var changedMoney = prevMoney - moneySpent;
-                              userRef.child('mike').update({'groceries': changedMoney});
+                              userRef.child('mike').update({'groceries': changedMoney, 'total':changedTotal});
                           });
                         });
                     break;
@@ -77,10 +96,12 @@
                               // childData will be the actual contents of the child
                               var childData = childSnapshot.val();
                               var prevMoney = childData.entertainment
+                              var prevTotal = childData.total;
+                              var changedTotal = moneySpent+prevTotal;
                               // console.log(childData.entertainment);
 
                               var changedMoney = prevMoney - moneySpent;
-                              userRef.child('mike').update({'entertainment': changedMoney});
+                              userRef.child('mike').update({'entertainment': changedMoney, 'total': changedTotal});
                           });
                         });
                     break;
@@ -95,9 +116,11 @@
                               var childData = childSnapshot.val();
                               // console.log(childData.miscellaneous);
                               var prevMoney = childData.miscellaneous;
+                              var prevTotal = childData.total;
+                              var changedTotal = moneySpent+prevTotal;
 
                               var changedMoney = prevMoney - moneySpent;
-                              userRef.child('mike').update({'misc': changedMoney});
+                              userRef.child('mike').update({'misc': changedMoney, 'total': changedTotal});
                           });
                         });
                     break;
@@ -153,33 +176,24 @@
             <div class="input">
                 <div class="input_box">
                     <div class="input_data" style="background-color:#99cbfc">
-                        <div class="wrapper">
-
                         <label for="moneySpent">Money Spent:  </label>
                         <!-- <input type="text" id="moneySpent"> -->
-                        
+                        <br/>
                         <!-- <button type="submit" onclick="changeBudget()">Submit </button> -->
-                        </div>
                     </div>
                     <div class="dropdown" style="background-color:#99cbfc">
-                      <div class="wrapper">
                             <!-- <button onclick="myFunction()" class="dropbtn">Select Category</button> -->
                             <!-- <select id="myDropdown" class="dropdown-content"> -->
-                            <div>
-                              <input type="text" id="moneySpent">
-                            </div>
-                            <div>
-                              <select>
-                              <option value="Choose a Category">Choose a Category</option>
-                              <option value="groceries">Groceries</option>
-                              <option value="gas">Gas</option>
-                              <option value="entertainment">Entertainment</option>
-                              <option value="misc">Misc</option>
-                              </select>
-                            </div>
-                        </div>
+                            <input type="text" id="moneySpent">
+                            <select id="dropDown">
+                              <option value="Choose a Category" id="-1">Choose a Category</option>
+                              <option value="groceries" id="gRoc">Groceries</option>
+                              <option value="gas" id="gAs">Gas</option>
+                              <option value="entertainment" id="eNt">Entertainment</option>
+                              <option value="misc" id="mIsc">Misc</option>
+                            </select>
                     </div>
-                    <button type="submit" class="registerbtn">Submit</button>
+                    <button type="submit" class="registerbtn" onclick="changeBudget()">Submit</button>
                 </div>
             </div>
 
@@ -191,9 +205,6 @@
         <script>
         /* When the user clicks on the button, 
         toggle between hiding and showing the dropdown content */
-        // function myFunction() {
-        // document.getElementById("myDropdown").classList.toggle("show");
-        // }
 
         // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
