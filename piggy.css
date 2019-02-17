@@ -66,7 +66,7 @@ html, body {
 
   .toThreshold .circle {
     background-image: url('dollar.png');
-    background-size: 50% 50%;
+    background-size: 100% 100%;
    }
 
    .toGraphs .circle {
