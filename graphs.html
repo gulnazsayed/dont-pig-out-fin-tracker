@@ -1,30 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="register.css">
 <script type="text/javascript">
 
 window.onload = function () {
   var chart = new CanvasJS.Chart("chartContainer1",
   {
     theme: "light2",
-    title:{
-      text: "How I Pigged Out This Week"
-    },    
+    // title:{
+    //   text: "How I Pigged Out This Week"
+    // },    
     data: [
     {       
       type: "pie",
       showInLegend: true,
       toolTipContent: "{y} - #percent %",
-      // yValueFormatString: "#,##0,,.## Million",
       legendText: "{indexLabel}",
       dataPoints: [
-        {  y: 2, indexLabel: "PlayStation 3" },
-        {  y: 3, indexLabel: "Wii" },
-        {  y: 4, indexLabel: "Xbox 360" },
-        {  y: 5, indexLabel: "Nintendo DS"},
-        {  y: 6, indexLabel: "PSP" },
-        {  y: 3, indexLabel: "Nintendo 3DS"},
-        {  y: 6, indexLabel: "PS Vita"}
+        {  y: 2, indexLabel: "Groceries" },
+        {  y: 3, indexLabel: "Gas" },
+        {  y: 4, indexLabel: "Entertainment" },
+        {  y: 5, indexLabel: "Food"}
       ]
     }
     ]
@@ -35,9 +33,9 @@ window.onload = function () {
   var chart2 = new CanvasJS.Chart("chartContainer2",
     {
 
-      title:{
-      text: "Earthquakes - per month"
-      },
+      // title:{
+      // text: "Expenses - per month"
+      // },
       axisX: {
         valueFormatString: "MMM",
         interval:1,
@@ -73,21 +71,18 @@ window.onload = function () {
 
   var chart3 = new CanvasJS.Chart("chartContainer3",
     {
-      title:{
-        text: "Top Oil Reserves"
-      },
+      // title:{
+      //   text: "Money Balance"
+      // },
+      theme: "light2",
       data: [
 
       {
         dataPoints: [
-        { x: 1, y: 297571, label: "Venezuela"},
-        { x: 2, y: 267017,  label: "Saudi" },
-        { x: 3, y: 175200,  label: "Canada"},
-        { x: 4, y: 154580,  label: "Iran"},
-        { x: 5, y: 116000,  label: "Russia"},
-        { x: 6, y: 97800, label: "UAE"},
-        { x: 7, y: 20682,  label: "US"},
-        { x: 8, y: 20350,  label: "China"}
+        { x: 1, y: 297571, label: "Groceries"},
+        { x: 2, y: 267017,  label: "Gas" },
+        { x: 3, y: 175200,  label: "Entertainment"},
+        { x: 4, y: 154580,  label: "Food"}
         ]
       }
       ]
@@ -95,45 +90,43 @@ window.onload = function () {
 
     chart3.render();
 }
-</script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
-<body>
-<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
-<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
-<div id="chartContainer3" style="height: 300px; width: 100%;"></div>
-<table style="width:100%">
+</script><script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+<body style="background-color:#fff6f4">
+  <hr>
+<center><h1 style = "font-family: 'Montserrat', sans-serif;">How I Pigged Out This Week</h1></center>
+<div id="chartContainer1" style="height: 300px; width: 100%;" class = "container"></div>
+<center><h1 style = "font-family: 'Montserrat', sans-serif;"><p></p>Monthly Expenses</h1></center>
+<div id="chartContainer2" style="height: 300px; width: 100%;" class = "container"></div>
+<center><h1 style = "font-family: 'Montserrat', sans-serif;"><p></p>Money Balance</h1></center>
+<div id="chartContainer3" style="height: 300px; width: 100%;" class = "container"></div>
+<center><h1 style = "font-family: 'Montserrat', sans-serif;"><p></p>Budget</h1></center>
+<table style="width:100%" class = "container" border=1 frame=hsides rules=rows>
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <th>Category</th>
+    <th>Expected Expense</th> 
+    <th>Actual Expense</th>
   </tr>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
+    <td><center>Groceries</center></td>
+    <td><center>$0</center></td> 
+    <td><center>$2</center></td>
   </tr>
   <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
-</table>
-<table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <td><center>Gas</center></td>
+    <td><center>$0</center></td> 
+    <td><center>$2</center></td>
   </tr>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
+    <td><center>Entertainment</center></td>
+    <td><center>$0</center></td> 
+    <td><center>$2</center></td>
   </tr>
   <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
+    <td><center>Food</center></td>
+    <td><center>$0</center></td> 
+    <td><center>$2</center></td>
   </tr>
 </table>
+<div><p></p><p></p><p></p><p></p></div> </hr>
 </body>
  </html>
