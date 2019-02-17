@@ -4,17 +4,115 @@
     <head>
         <link rel="stylesheet" type="text/css" href="piggy.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+        <script>
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyA-A5xRAyWhCXfUbsQxdBteiKIS-YMwSSM",
+                authDomain: "dontpigout-6a78f.firebaseapp.com",
+                databaseURL: "https://dontpigout-6a78f.firebaseio.com",
+                projectId: "dontpigout-6a78f",
+                storageBucket: "dontpigout-6a78f.appspot.com",
+                messagingSenderId: "103970144178"
+              };
+              firebase.initializeApp(config);
+
+              // var ref = firebase.database().ref();                           
+              // ref.on("value", function(snapshot) {
+              //   output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+              // });
+              database = firebase.database();
+
+              var ref = database.ref("users/userId/mike");
+              console.log(ref);
+  
+            function changeBudget(){
+                var moneySpent = parseInt(document.getElementById("moneySpent").value);
+                var category = "gas"; //change once we have the dropdown 
+
+                let userRef = database.ref('users/' + "userId");
+                switch(category){
+                    case "gas": 
+                      var query = firebase.database().ref("users/userId").orderByKey();
+                        query.once("value")
+                          .then(function(snapshot) {
+                            snapshot.forEach(function(childSnapshot) {
+                              // key will be "ada" the first time and "alan" the second time
+                              var key = childSnapshot.key;
+                              // childData will be the actual contents of the child
+                              var childData = childSnapshot.val();
+                              //console.log(childData.gas);
+                              var prevMoney = childData.gas;
+
+                          var changedMoney = prevMoney - moneySpent;
+                          userRef.child('mike').update({'gas': changedMoney});
+                          });
+                        });
+                    break;
+                    case "groceries": 
+                      var query = firebase.database().ref("users/userId").orderByKey();
+                        query.once("value")
+                          .then(function(snapshot) {
+                            snapshot.forEach(function(childSnapshot) {
+                              // key will be "ada" the first time and "alan" the second time
+                              var key = childSnapshot.key;
+                              // childData will be the actual contents of the child
+                              var childData = childSnapshot.val();
+                              //console.log(childData.groceries);
+                              var prevMoney = childData.groceries;
+
+                              var changedMoney = prevMoney - moneySpent;
+                              userRef.child('mike').update({'groceries': changedMoney});
+                          });
+                        });
+                    break;
+                    case "entertainment":
+                      var query = firebase.database().ref("users/userId").orderByKey();
+                        query.once("value")
+                          .then(function(snapshot) {
+                            snapshot.forEach(function(childSnapshot) {
+                              // key will be "ada" the first time and "alan" the second time
+                              var key = childSnapshot.key;
+                              // childData will be the actual contents of the child
+                              var childData = childSnapshot.val();
+                              var prevMoney = childData.entertainment
+                              // console.log(childData.entertainment);
+
+                              var changedMoney = prevMoney - moneySpent;
+                              userRef.child('mike').update({'entertainment': changedMoney});
+                          });
+                        });
+                    break;
+                    case "misc": 
+                      var query = firebase.database().ref("users/userId").orderByKey();
+                        query.once("value")
+                          .then(function(snapshot) {
+                            snapshot.forEach(function(childSnapshot) {
+                              // key will be "ada" the first time and "alan" the second time
+                              var key = childSnapshot.key;
+                              // childData will be the actual contents of the child
+                              var childData = childSnapshot.val();
+                              // console.log(childData.miscellaneous);
+                              var prevMoney = childData.miscellaneous;
+
+                              var changedMoney = prevMoney - moneySpent;
+                              userRef.child('mike').update({'misc': changedMoney});
+                          });
+                        });
+                    break;
+                }
+                console.log("updated money spent");
+            }
+        </script>
     </head>
 
-    <body class="body" onkeydown="changePig(event)">
+    <body class="body"> <!--onkeydown="changePig(event)"-->
         <div class="flex-container">
             <header class="menu">
                 
                 <div class="toThreshold">
-                    <a href="options.html">
-                        <div class="circle">              
-                        </div>
-                    </a>
+                    <div class="circle">              
+                    </div>
                     <div class="whitespace3">
 
                     </div>
@@ -25,10 +123,8 @@
                 <div class="whitespace1">                    
                 </div>
                 <div class="toGraphs">                    
-                    <a href="graphs.html">
-                        <div class="circle">              
-                        </div>
-                    </a>
+                    <div class="circle">              
+                    </div>
                     <div class="whitespace3">
                         
                         </div>
@@ -41,10 +137,10 @@
                 <div class="whitespace2">
 
                 </div>
-                <div id="piggy">
+                <div class="piggy">
                 </div>
                 <div class="accessory">
-                    <div id="accessoryI">
+                    <div class="accessoryI">
 
                     </div>
                 </div>
@@ -52,10 +148,13 @@
             <div class="input">
                 <div class="input_box">
                     <div class="input_data">
-
+                        <p>Money Spent: </p>
+                        <input type="text" id="moneySpent">
+                        <input type="submit" value="Submit" onclick="changeBudget()"><br>
                     </div>
                     <div class="input_cat">
-
+<!--                         <p>Category</p><br> 
+                        <input type="drop" name="view_select" checked onclick="dropDown()"> -->
                     </div>
                 </div>
             </div>
