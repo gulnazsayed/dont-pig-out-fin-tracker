@@ -158,14 +158,16 @@
                         <br/>
                         <button type="submit" onclick="changeBudget()">Submit </button>
                     </div>
-                    <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Select Category</button>
-                            <select id="myDropdown" class="dropdown-content">
+                    <div class="dropdown" style="background-color:#99cbfc">
+                            <!-- <button onclick="myFunction()" class="dropbtn">Select Category</button> -->
+                            <!-- <select id="myDropdown" class="dropdown-content"> -->
+                            <select>
                               <option value="groceries">Groceries</option>
                               <option value="gas">Gas</option>
                               <option value="entertainment">Entertainment</option>
                               <option value="misc">Misc</option>
                             </select>
+
                     </div>
                 </div>
             </div>
@@ -178,9 +180,9 @@
         <script>
         /* When the user clicks on the button, 
         toggle between hiding and showing the dropdown content */
-        function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-        }
+        // function myFunction() {
+        // document.getElementById("myDropdown").classList.toggle("show");
+        // }
 
         // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
