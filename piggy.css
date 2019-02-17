@@ -126,7 +126,7 @@ html, body {
 
 .input_data {
     background-color: white;
-    width: 75%;
+    width: 95%;
 }
 
 .dropdown {
@@ -183,3 +183,14 @@ html, body {
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+  .registerbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px 20px;
+  margin: 0px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}

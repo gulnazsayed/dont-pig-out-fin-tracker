@@ -154,21 +154,23 @@
                 <div class="input_box">
                     <div class="input_data" style="background-color:#99cbfc">
                         <label for="moneySpent">Money Spent:  </label>
-                        <input type="text" id="moneySpent">
+                        <!-- <input type="text" id="moneySpent"> -->
                         <br/>
-                        <button type="submit" onclick="changeBudget()">Submit </button>
+                        <!-- <button type="submit" onclick="changeBudget()">Submit </button> -->
                     </div>
                     <div class="dropdown" style="background-color:#99cbfc">
                             <!-- <button onclick="myFunction()" class="dropbtn">Select Category</button> -->
                             <!-- <select id="myDropdown" class="dropdown-content"> -->
+                            <input type="text" id="moneySpent">
                             <select>
+                              <option value="Choose a Category">Choose a Category</option>
                               <option value="groceries">Groceries</option>
                               <option value="gas">Gas</option>
                               <option value="entertainment">Entertainment</option>
                               <option value="misc">Misc</option>
                             </select>
-
                     </div>
+                    <button type="submit" class="registerbtn">Submit</button>
                 </div>
             </div>
 
