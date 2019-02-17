@@ -149,17 +149,18 @@
             <div class="input">
                 <div class="input_box">
                     <div class="input_data">
-                        <p>Money Spent: </p>
+                        <label for="moneySpent">Money Spent:  </label>
                         <input type="text" id="moneySpent">
-                        <input type="submit" value="Submit" onclick="changeBudget()"><br>
+                        <br/>
+                        <button type="submit" onclick="changeBudget()">Submit </button>
                     </div>
                     <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <button onclick="myFunction()" class="dropbtn">Select Category</button>
                             <select id="myDropdown" class="dropdown-content">
-                              <option>Groceries</a>
-                              <a>Gas</a>
-                              <a>Entertainment</a>
-                              <a>Misc</a>
+                              <option value="groceries">Groceries</option>
+                              <option value="gas">Gas</option>
+                              <option value="entertainment">Entertainment</option>
+                              <option value="misc">Misc</option>
                             </select>
                     </div>
                 </div>
