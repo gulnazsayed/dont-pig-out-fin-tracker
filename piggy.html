@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="piggy.css">
+        <link rel="stylesheet" type="text/css" href="dropdown.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
         <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
         <script>
@@ -106,7 +107,7 @@
         </script>
     </head>
 
-    <body class="body"> <!--onkeydown="changePig(event)"-->
+    <body class="body" onkeydown="changePig(event)"> <!--onkeydown="changePig(event)"-->
         <div class="flex-container">
             <header class="menu">
                 
@@ -137,10 +138,10 @@
                 <div class="whitespace2">
 
                 </div>
-                <div class="piggy">
+                <div id="piggy">
                 </div>
                 <div class="accessory">
-                    <div class="accessoryI">
+                    <div id="accessoryI" onkeydown="changePig(event)">
 
                     </div>
                 </div>
@@ -152,9 +153,14 @@
                         <input type="text" id="moneySpent">
                         <input type="submit" value="Submit" onclick="changeBudget()"><br>
                     </div>
-                    <div class="input_cat">
-<!--                         <p>Category</p><br> 
-                        <input type="drop" name="view_select" checked onclick="dropDown()"> -->
+                    <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <select id="myDropdown" class="dropdown-content">
+                              <option>Groceries</a>
+                              <a>Gas</a>
+                              <a>Entertainment</a>
+                              <a>Misc</a>
+                            </select>
                     </div>
                 </div>
             </div>
@@ -164,6 +170,27 @@
             </footer>
         </div>
         
+        <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+        </script>
         <script src="./pigChange.js"></script>
     </body>
 </html>
