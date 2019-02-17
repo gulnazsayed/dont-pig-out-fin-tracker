@@ -34,7 +34,7 @@
         var total = gROC+gAS+eNT+mISC;
 
         let userRef = database.ref('users/' + "userId");
-        userRef.child('mike').update({'gas_org': gAS, 'groceries_org': gROC, 'entertainment_org': eNT, "miscellaneous_org": mISC, 'total_org': total, 'total': 0});
+        userRef.child('mike').update({'gas': gAS, 'gas_org': gAS, 'groceries': gROC, 'groceries_org': gROC, 'entertainment': eNT, 'entertainment_org': eNT, "miscellaneous": mISC, "miscellaneous_org": mISC, 'total_org': total, 'total': 0});
         console.log("reached the end");
     }
 
