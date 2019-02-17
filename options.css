@@ -13,6 +13,8 @@ body, html {
   background-color:#fff6f4;
   font-size: 150%;
   height: 100%;
+  background-image: url('pinkbg.jpg');
+    background-size: 100% 100%;
   
 }
 
