@@ -5,3 +5,5 @@ With tons of personal banking and financial tracking apps with their fancy algor
 Financial transactions are tracked over time, creating various visualizations and graphs of user purchase history. An analysis of individualized trends also customizes the pig over time to closely mirror user spending habits and keep the user more attached to their grocery-bag-toting or movie-obsessing pig.
 
 With the trending push away from cash and towards electronic payments, people don't feel the effect of giving up wads of cash while they swipe their plastic cards to their heart's contents. Teenagers who spend their time playing games and less time budgeting money will appreciate the cute motivation Don't Pig Out! has to offer.
+
+DevPost: https://devpost.com/software/financialtracker
